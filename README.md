@@ -7,8 +7,20 @@
 ```bash
 npm install
 npm run dev      # 开发模式
-npm run pack     # 构建并打包出 NSIS 安装包（release/）
+npm run pack     # 本地构建安装包
 ```
+
+## 下载安装包
+
+前往 [GitHub Releases](https://github.com/zm22888/md-browser/releases) 下载对应平台版本：
+
+| 平台 | 文件 | 说明 |
+| --- | --- | --- |
+| Windows | `MD Browser Setup x.y.z.exe` | NSIS 安装器，安装后自动注册 `.md` 文件关联 |
+| macOS | `.dmg` / `.zip`（Intel 与 Apple Silicon） | 未签名，首次打开需右键 → 打开 |
+| Linux | `.AppImage` / `.deb` | AppImage 赋予执行权限后直接运行 |
+
+推送 `v*` 标签时，GitHub Actions 会在三个平台的云机器上自动构建并上传安装包到 Release。
 
 ## 已实现
 
