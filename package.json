@@ -5,6 +5,10 @@
   "main": "out/main/index.js",
   "author": "md-browser",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zm22888/md-browser.git"
+  },
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
@@ -53,6 +57,23 @@
           "arch": ["x64"]
         }
       ]
+    },
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "maintainer": "md-browser"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "zm22888",
+      "repo": "md-browser"
     },
     "nsis": {
       "oneClick": false,

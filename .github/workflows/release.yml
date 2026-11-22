@@ -1,0 +1,35 @@
+name: Build & Publish Release
+
+# 推送 v* 标签时，在三个平台的云机器上分别构建并上传安装包到 GitHub Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx electron-vite build
+
+      # GH_TOKEN 由 Actions 自动提供；--publish always 会把产物上传到
+      # 与当前标签同名的 GitHub Release（不存在时自动创建）
+      - run: npx electron-builder --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
