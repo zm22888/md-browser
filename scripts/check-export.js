@@ -1,0 +1,8 @@
+const s = require('fs').readFileSync('D:/workspace/md/demo-docs/md-export-test.html', 'utf8')
+console.log('size:', s.length)
+console.log('katex fonts inlined:', (s.match(/data:font\//g) || []).length)
+console.log('mermaid svg:', (s.match(/mermaid-chart/g) || []).length)
+console.log('shiki pre:', (s.match(/class="shiki/g) || []).length)
+console.log('search marks:', (s.match(/<mark class="search-hit"/g) || []).length)
+console.log('doctype ok:', s.startsWith('<!doctype html>'))
+console.log('katex css:', s.includes('.katex-display'))

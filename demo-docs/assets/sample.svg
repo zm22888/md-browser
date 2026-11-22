@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="130" viewBox="0 0 260 130">
+  <rect width="260" height="130" rx="14" fill="#0969da"/>
+  <text x="130" y="60" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#ffffff">mdres:// 图片</text>
+  <text x="130" y="90" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#dbeafe">相对路径加载成功 ✓</text>
+</svg>

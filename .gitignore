@@ -1,0 +1,13 @@
+# 依赖与构建产物
+node_modules/
+out/
+dist/
+release/
+
+# 开发辅助（截图 / 点击测试产物，含本地屏幕内容）
+.shots/
+
+# 日志与本地文件
+*.log
+*.local
+.DS_Store
